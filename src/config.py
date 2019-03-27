@@ -1,6 +1,6 @@
 MOVIE_SITES = [
-    {'name': '19影视', 'url': 'https://www.19kan.com/vodsearch.html?wd={0}', 'selector': 'h1.fed-part-eone.fed-font-xvi a'},
-    {'name': '2TU影院', 'url': 'http://www.82tu.cc/search.php?submit=%E6%90%9C+%E7%B4%A2&searchword={0}', 'selector': 'ul.mlist div.info'},
+    {'name': '19影视', 'url': 'https://www.19kan.com/vodsearch.html?wd={0}', 'selector': 'body div.fed-main-info.fed-min-width div div div.fed-main-left.fed-col-xs12.fed-col-md9 div div.fed-part-layout.fed-back-whits.fed-margin-right dl'},
+    {'name': '2TU影院', 'url': 'http://www.82tu.cc/search.php?searchword={0}', 'selector': 'ul.mlist div.info'},
     {'name': '52 Movie', 'url': 'http://www.52movieba.com/search.htm?keyword={0}', 'selector': 'table.table.table-hover.threadlist tr.thread.tap'},
     {'name': '592美剧', 'url': 'http://www.592meiju.com/search/?wd={0}', 'selector': 'ul.serach-ul div.info'},
     {'name': '66影视网', 'method': "post", 'url': 'https://www.66ys.tv/e/search/index.php', 'data': r'show=title%2Csmalltext&tempid=1&tbname=Article&keyboard=${gunititle}&Submit22=%E6%90%9C%E7%B4%A2', 'headers': {"Content-Type": "application/x-www-form-urlencoded" }, 'rewrite_href': True, 'selector': "div.listBox li"},
