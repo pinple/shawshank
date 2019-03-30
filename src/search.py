@@ -6,24 +6,23 @@ from bs4 import BeautifulSoup
 from src.config import MOVIE_SITES
 from src.logger import logger
 
+headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+
 
 async def search(site_name, site_url, keyword, selector):
-    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False), headers=headers) as session:
         url = site_url.format(quote(keyword))
         try:
-            async with session.get(url) as resp:
+            async with session.get(url, timeout=5) as resp:
                 if resp.status == 200:
-                    markup = resp.content
+                    markup = await resp.text()
                     soup = BeautifulSoup(markup, "lxml")
                     movies = soup.select(selector)
                     if movies:
-                        logger.debug("{} success, url: {}".format(site_name, url))
-                else:
-                    logger.debug("{} fail, url: {}".format(site_name, url))
-        except:
-            # logger.debug("{} fail, url: {}".format(site_name, url))
+                        logger.info("site_name: {}, url: {}".format(site_name, url))
+                        return {'site_name': site_name, 'url': url}
+        except Exception as e:
             pass
-
 
 def run():
     """
