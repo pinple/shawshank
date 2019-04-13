@@ -22,7 +22,7 @@ MOVIE_SITES = [
     {'name': '泡饭影视', 'url': 'http://www.chapaofan.com/search/{0}', 'selector': 'div.content-list > div > ul.item', 'description': '可下载'},
     {'name': '飘花资源网', 'url': 'https://www.piaohua.com/plus/search.php?kwtype=0&keyword={0}', 'selector': 'div.container div.txt', 'description': '可下载'},
     {'name': '5号站', 'url': 'http://www.baike789.com/s/{0}/', 'selector': 'li.m_list', 'description': '可播放'},
-    {'name': '贪玩影视', 'url': 'http://www.tanwanyingshi.com/movie/search?keyword={0}', 'selector': '.service-item', 'description': '', '可播放+可下载'},
+    {'name': '贪玩影视', 'url': 'http://www.tanwanyingshi.com/movie/search?keyword={0}', 'selector': '.service-item', 'description': '可播放+可下载'},
     {'name': '新片网', 'url': 'http://www.91xinpian.com/index.php?m=vod-search&wd={0}', 'selector': 'div.search span.name', 'description': '可播放+可下载'},
     {'name': '迅雷影天堂', 'url': 'https://www.xl720.com/?s={0}', 'selector': 'div.post-grid div h3', 'description': '可播放'},
     {'name': '一只大榴莲', 'url': 'http://www.llduang.com/?s={0}', 'selector': 'div.mainleft div.info', 'description': '可下载'},

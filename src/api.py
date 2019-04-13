@@ -15,7 +15,7 @@ def search_movie():
     start_date = datetime.datetime.now()
     keyword = request.args.get('keyword', '')
     results = []
-    tasks = [search(item['name'], item['url'], keyword, item['selector']) for item in MOVIE_SITES]
+    tasks = [search(item['name'], item['url'], keyword, item['selector'], item['description']) for item in MOVIE_SITES]
     if tasks:
         results = loop.run_until_complete(asyncio.gather(*tasks))
     results = list(filter(lambda x: x, results))
