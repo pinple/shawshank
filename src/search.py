@@ -24,17 +24,19 @@ async def search(site_name, site_url, keyword, selector):
         except Exception as e:
             pass
 
-def run():
+def run(keyword):
     """
     启动搜索
     """
     logger.debug("searching...")
     loop = asyncio.get_event_loop()
-    tasks = [search(item['name'], item['url'], '肖申克的救赎', item['selector']) for item in MOVIE_SITES]
+    tasks = [search(item['name'], item['url'], keyword, item['selector']) for item in MOVIE_SITES]
+    results = []
     if tasks:
-        loop.run_until_complete(asyncio.wait(tasks))
-    logger.info("completed...")
+        results = loop.run_until_complete(asyncio.gather(*tasks))
+    logger.debug("completed...")
+    return results
 
 
 if __name__ == '__main__':
-    run()
+    run('肖申克的救赎')
